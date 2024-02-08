@@ -12,7 +12,7 @@ import {
   FeaturedImage,
   SEO,
 } from '../components';
-
+import Blocks from '../wp-blocks/index'
 export default function Component(props) {
   // Loading state for previews
   if (props.loading) {
@@ -32,20 +32,14 @@ export default function Component(props) {
         description={siteDescription}
         imageUrl={featuredImage?.node?.sourceUrl}
       />
-      <Header
-        title={siteTitle}
-        description={siteDescription}
-        menuItems={primaryMenu}
-      />
       <Main>
         <>
-          <EntryHeader title={title} image={featuredImage?.node} />
+          {/*<EntryHeader title={title} image={featuredImage?.node} />*/}
           <Container>
             <ContentWrapper content={content} />
           </Container>
         </>
       </Main>
-      <Footer title={siteTitle} menuItems={footerMenu} />
     </>
   );
 }
