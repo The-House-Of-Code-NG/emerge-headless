@@ -2,7 +2,6 @@ import { gql } from '@apollo/client';
 import * as MENUS from '../constants/menus';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
 import {
-
     NavigationMenu,
     FeaturedImage,
 } from '../components';
@@ -10,7 +9,6 @@ import Blocks from '../wp-blocks/index'
 import {WordPressBlocksViewer} from "@faustwp/blocks";
 import {flatListToHierarchical} from "@faustwp/core";
 import Header from "../components/Header/Header";
-
 
 export default function Component(props) {
     if (props.loading) {
@@ -40,15 +38,12 @@ Component.variables = ({ databaseId }, ctx) => {
 
 Component.query = gql`
   ${BlogInfoFragment}
-  ${NavigationMenu.fragments.entry}
   ${FeaturedImage.fragments.entry}
   ${Blocks.EmergeHomepage.fragments.entry}
   ${Blocks.EmergeCoreClients.fragments.entry}
   ${Blocks.EmergeWhatWeDo.fragments.entry}
   query GetPageData(
     $databaseId: ID!
-    $headerLocation: MenuLocationEnum
-    $footerLocation: MenuLocationEnum
     $asPreview: Boolean = false
   ) {
     page(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
@@ -67,16 +62,6 @@ Component.query = gql`
     }
     generalSettings {
       ...BlogInfoFragment
-    }
-    footerMenuItems: menuItems(where: { location: $footerLocation }) {
-      nodes {
-        ...NavigationMenuItemFragment
-      }
-    }
-    headerMenuItems: menuItems(where: { location: $headerLocation }) {
-      nodes {
-        ...NavigationMenuItemFragment
-      }
     }
   }
 `;
