@@ -4,7 +4,15 @@ import {useRef} from 'react'
 import Image from "next/image";
 
 export default function EmergeHomepage (props) {
-    const {sectionHeading, tagText, mainImage, sectionText, buttonText, buttonLink} = props.attributes
+    const {
+        sectionHeading,
+        tagText,
+        mainImage,
+        sectionText,
+        certificateOne,
+        certificateTwo,
+        certificateThree,
+        buttonText, buttonLink} = props.attributes
 
     const [scope] = useAnimate()
     const target = useRef()
@@ -16,7 +24,6 @@ export default function EmergeHomepage (props) {
 
     const opacity = useTransform(scrollYProgress, [0.3, 0.5, 0.9], [1, 0.3, 0])
     const scale = useTransform(scrollYProgress, [0.5, 1], [1, 0.8]);
-
     return (
         <motion.section ref={target} style={{opacity}} className="w-full px-[1.25rem] lg:px-[8rem] overflow-hidden">
             <motion.div style={{scale}} className='flex flex-col md:flex-row md:items-center md:justify-between w-full pt-5'>
@@ -37,14 +44,14 @@ export default function EmergeHomepage (props) {
                             {buttonText}
                         </a>
                         <div className='flex mt-[1.88rem] space-x-1 md:mt-14 md:space-x-6 flex-row items-center'>
-                            <img  className="w-1/3 md:w-full" src='/hero-image-1.svg' />
-                            <img className="w-1/3 md:w-full" src='/hero-image-2.svg' />
-                            <img className="w-1/3 md:w-full" src='/hero-image-3.svg' />
+                            <img  className="w-1/3 md:w-full" src={certificateOne} />
+                            <img  className="w-1/3 md:w-full" src={certificateTwo} />
+                            <img  className="w-1/3 md:w-full" src={certificateThree} />
                         </div>
                     </div>
                 </div>
                 <div className="w-full md:w-1/2 mt-[3.1rem] md:mt-0 flex flex-row md:justify-center">
-                    <img className="w-[500px] h-[480px] self-end" src="/homepage-hero-image.png" alt="Emerge digital" />
+                    <img className="w-[500px] h-[480px] self-end" src={mainImage} alt="Emerge digital" />
                 </div>
             </motion.div>
         </motion.section>
@@ -61,7 +68,10 @@ EmergeHomepage.fragments = {
         mainImage
         sectionText
         buttonText
-        buttonLink
+        buttonLink,
+        certificateOne,
+        certificateTwo,
+        certificateThree,
       }
     }
   `,

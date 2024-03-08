@@ -2,8 +2,7 @@ import { gql } from '@apollo/client';
 import * as MENUS from '../constants/menus';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
 import {
-    NavigationMenu,
-    FeaturedImage,
+    FeaturedImage, Footer,
 } from '../components';
 import Blocks from '../wp-blocks/index'
 import {WordPressBlocksViewer} from "@faustwp/blocks";
@@ -23,6 +22,7 @@ export default function Component(props) {
         <>
             <Header />
             <WordPressBlocksViewer blocks={blocks} />
+            <Footer />
         </>
     );
 }
@@ -42,6 +42,15 @@ Component.query = gql`
   ${Blocks.EmergeHomepage.fragments.entry}
   ${Blocks.EmergeCoreClients.fragments.entry}
   ${Blocks.EmergeWhatWeDo.fragments.entry}
+  ${Blocks.EmergeHomepageCallToAction.fragments.entry}
+  ${Blocks.EmergeHomepageServicesSlider.fragments.entry}
+  ${Blocks.EmergeHomepagePartnership.fragments.entry}
+  ${Blocks.EmergeHomepageWhyUs.fragments.entry}
+  ${Blocks.EmergeCoreNewsletter.fragments.entry}
+  ${Blocks.EmergeHomepageCalender.fragments.entry}
+  ${Blocks.EmergeCoreFaq.fragments.entry}
+  ${Blocks.EmergeHomepageReviews.fragments.entry}
+  ${Blocks.EmergeHomepageTeam.fragments.entry}
   query GetPageData(
     $databaseId: ID!
     $asPreview: Boolean = false
@@ -57,6 +66,15 @@ Component.query = gql`
     ...${Blocks.EmergeHomepage.fragments.key}
     ...${Blocks.EmergeCoreClients.fragments.key}
     ...${Blocks.EmergeWhatWeDo.fragments.key}
+    ...${Blocks.EmergeHomepageCallToAction.fragments.key}
+    ...${Blocks.EmergeHomepageServicesSlider.fragments.key}
+    ...${Blocks.EmergeHomepagePartnership.fragments.key}
+    ...${Blocks.EmergeHomepageWhyUs.fragments.key}
+    ...${Blocks.EmergeCoreNewsletter.fragments.key}
+    ...${Blocks.EmergeHomepageCalender.fragments.key}
+    ...${Blocks.EmergeCoreFaq.fragments.key}
+    ...${Blocks.EmergeHomepageReviews.fragments.key}
+    ...${Blocks.EmergeHomepageTeam.fragments.key}
     }
       ...FeaturedImageFragment
     }
