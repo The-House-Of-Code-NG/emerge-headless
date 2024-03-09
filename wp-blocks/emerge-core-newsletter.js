@@ -7,7 +7,7 @@ export default function EmergeCoreNewsletter( props ) {
         <motion.section
             className="w-full px-[1.25rem] lg:px-[8rem] overflow-hidden"
         >
-            <div className="bg-[#100650] bg-auto bg-no-repeat bg-[url('/vector.svg')] bg-left-top mb-28 rounded-[24px] px-6 md:px-20  pb-12 ">
+            <div className="bg-[#100650] bg-auto bg-no-repeat bg-[url('/Vector.svg')] bg-left-top mb-28 rounded-[24px] px-6 md:px-20  pb-12 ">
                 <div className="flex flex-col md:flex-row">
                     <div className="pt-12">
                         <h1 className="w-full md:w-2/3 font-black font-Satoshi text-white text-[48px] leading-[57px]">
