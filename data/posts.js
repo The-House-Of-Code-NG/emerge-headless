@@ -1,9 +1,9 @@
-import blog1 from '../../../assets/blog/blog1.svg'
-import blog2 from '../../../assets/blog/blog2.svg'
-import blog3 from '../../../assets/blog/blog3.svg'
-import blog4 from '../../../assets/blog/blog4.svg'
-import blog5 from '../../../assets/blog/blog5.svg'
-import blog6 from '../../../assets/blog/blog6.svg'
+import blog1 from '../assets/blog/blog1.svg'
+import blog2 from '../assets/blog/blog2.svg'
+import blog3 from '../assets/blog/blog3.svg'
+import blog4 from '../assets/blog/blog4.svg'
+import blog5 from '../assets/blog/blog5.svg'
+import blog6 from '../assets/blog/blog6.svg'
 
 export const posts = [
     {

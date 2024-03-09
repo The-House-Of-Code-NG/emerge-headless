@@ -1,9 +1,10 @@
 import FeatureImageOne from '../assets/blog/feature-1.svg'
 import FeatureImageTwo from '../assets/blog/feature-2.svg'
-import {ReactComponent as ArrowIcon} from '../assets/blog/arrow-icon.svg'
+import ArrowIcon from '../assets/blog/arrow-icon.svg'
 import signupimage from '../assets/black-afro.png'
 import vector from '../assets/Vector(2).svg'
 import { Container } from './Container';
+import Image from 'next/image'
 
 
 const colorNames = [
@@ -57,13 +58,13 @@ export function BlogFeatured() {
              <div className="grid md:grid-cols-2 grid-cols-1 md:gap-x-8 gap-y-12 w-full mb-[6rem]">
             <div className="">
                 <div className="mb-6">
-                    <img src={FeatureImageOne} className='h-[60px] w-full object-cover rounded-br-[16px] rounded-bl-[16px]' alt="Feature One" />
+                    <Image src={FeatureImageOne} height={60} className='h-[60px] w-full object-cover rounded-br-[16px] rounded-bl-[16px]' />
                 </div>
                 <div className="w-full">
                     <span className="text-xl text-[#6941C6] leading-3">Olivia Rhye • 20 Jan 2024</span>
                     <div className="flex w-full justify-between items-center my-2">
                         <h4 className="text-[#101828]">UX review presentations</h4>
-                        <ArrowIcon />
+                        <Image src={ArrowIcon} />
                     </div>
                     <p className='text-[#2D2D2D] text-2xl'>How do you create compelling presentations that wow your colleagues and impress your managers?</p>
                     <div className="mt-6">
@@ -77,13 +78,13 @@ export function BlogFeatured() {
             </div>
             <div className="flex pt-[1.75rem] w-full">
                 <div className="flex-1 mr-6">
-                    <img src={FeatureImageTwo} className='w-[20rem] h-[12.5rem] object-cover rounded-2xl' alt="Feature Two" />
+                    <Image src={FeatureImageTwo} width={320} height={192} className='object-cover rounded-2xl' alt="Feature Two" />
                 </div>
                 <div className="flex-1 w-full">
                 <span className="text-xl text-[#6941C6] leading-3">Lana Steiner • 18 Jan 2024</span>
                     <div className="flex w-full justify-between items-center my-2">
                         <h4 className="text-[#101828]">Building your API stack</h4>
-                        <ArrowIcon />
+                        <Image src={ArrowIcon} />
                     </div>
                     <p className='text-[#2D2D2D] te xt-2xl'>The rise of RESTful APIs has been met by a rise in tools for creating, testing, and manag...</p>
                     <div className="mt-6">
@@ -118,8 +119,8 @@ export const SignupForms = () => {
                        </div>
                    </div>
                    <div className="newsletter-image">
-                        <img  src={vector} className="newsletter-vector-image" />
-                        <img className="newsletter-main-image" src={signupimage} alt="" />
+                        <img  src="/Vector(2).svg" className="newsletter-vector-image" />
+                        <img className="newsletter-main-image" src='/black-afro.png' alt="" />
                     </div>
                </div>
            </section>
@@ -135,13 +136,13 @@ export function BlogList({ posts }) {
             {posts.map((data, index) => (
                 <div className="">
                 <div className="mb-6">
-                    <img src={data.image} className='w-full object-cover' alt="Feature One" />
+                    <Image src={data.image} fill={true} className='w-full object-cover' alt="Feature One" />
                 </div>
                 <div className="w-full">
                     <span className="text-xl text-[#6941C6] leading-3">{data.name} • {data.date}</span>
                     <div className="flex w-full justify-between items-center my-2">
                         <h4 className="text-[#101828]">{data.title}</h4>
-                        <ArrowIcon />
+                        <Image src={ArrowIcon} />
                     </div>
                     <p className='text-[#2D2D2D] text-2xl'>{data.content}</p>
                     <div className="mt-6">

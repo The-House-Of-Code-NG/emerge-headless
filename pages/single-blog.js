@@ -1,19 +1,19 @@
-import Footer from "../components/Footer";
-import Navbar from "../components/Header";
+import {Footer} from "../components/Footer";
+import {Header} from "../components/Header";
 import { BlogHero, BlogList, BlogContent, SignupForms } from "../components/SingleBlog";
 import { posts } from "../data/posts";
 
 
-export default function Blog() {
+export default function SingleBlog() {
     return (
         <>
-            <Navbar />
+            <Header />
                 <BlogHero />
-                <BlogContent />
+                <BlogContent /> 
                 <BlogList posts={posts} />
                 <SignupForms />
                 
-            <Footer />
+            <Footer /> 
         </>
     )
 }
