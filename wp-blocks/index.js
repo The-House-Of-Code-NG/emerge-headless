@@ -10,6 +10,13 @@ import EmergeHomepageCalender from "./emerge-homepage-calender";
 import EmergeCoreFaq from "./emerge-core-faq";
 import EmergeHomepageReviews from "./emerge-homepage-reviews";
 import EmergeHomepageTeam from "./emerge-homepage-team";
+import EmergeServiceHeading from "./emerge-service-heading";
+import EmergeServiceHero from './emerge-service-hero';
+import EmergeServiceBenefits from './emerge-service-benefits';
+import EmergeServicesSlider from "./emerge-services-slider";
+import EmergeServiceServices from "./emerge-service-services";
+import EmergeServiceStages from './emerge-service-stages';
+import EmergeCaseStudy from "./emerge-case-study";
 
 export default  {
     EmergeHomepage,
@@ -23,5 +30,12 @@ export default  {
     EmergeHomepageCalender,
     EmergeCoreFaq,
     EmergeHomepageReviews,
-    EmergeHomepageTeam
+    EmergeHomepageTeam,
+    EmergeServiceHeading,
+    EmergeServiceHero,
+    EmergeServiceBenefits,
+    EmergeServicesSlider,
+    EmergeServiceServices,
+    EmergeServiceStages,
+    EmergeCaseStudy
 }

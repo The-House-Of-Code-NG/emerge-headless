@@ -2,7 +2,7 @@
 
 export default function Footer({titles, menus}) {
     return (
-        <footer className='bg-white'>
+        <footer className='bg-white mt-[77px]'>
             <div className="w-full px-[1.25rem] lg:px-[8rem] overflow-hidden">
                 <div className='w-full pt-[3.81rem] pb-[2.5rem]'>
                     <div className='w-full flex flex-col lg:flex-row justify-between'>
