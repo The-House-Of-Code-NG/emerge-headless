@@ -5,7 +5,7 @@ let cx = className.bind(styles);
 
 export default function Container({ children, className }) {
   return (
-    <div className={cx(['component', className])}>
+    <div className="w-full px-[1.25rem] lg:px-[8rem] overflow-hidden">
       {children}
     </div>
   );
