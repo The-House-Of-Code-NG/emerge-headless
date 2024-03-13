@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 import * as MENUS from '../constants/menus';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
 import {
-    FeaturedImage, Footer,
+    FeaturedImage, Footer, NavigationMenu, SEO
 } from '../components';
 import Blocks from '../wp-blocks/index'
 import {WordPressBlocksViewer} from "@faustwp/blocks";
@@ -16,13 +16,23 @@ export default function Component(props) {
 
     const { title: siteTitle, description: siteDescription } =
         props?.data?.generalSettings;
+
+    const primaryMenu = props?.data?.headerMenuItems?.nodes ?? [];
+    const footerMenu = props?.data?.footerMenuItems?.nodes ?? [];
+
+
+    console.log({
+        primaryMenu,
+        footerMenu
+    })
     const { editorBlocks } = props.data.page;
     const blocks = flatListToHierarchical(editorBlocks);
     return (
         <>
-            <Header />
+            <SEO title={siteTitle} description={siteDescription} />
+            <Header description={siteDescription} title={siteTitle} menuItems={primaryMenu} />
             <WordPressBlocksViewer blocks={blocks} />
-            <Footer />
+            <Footer description={siteDescription} title={siteTitle} menuItems={footerMenu} />
         </>
     );
 }
@@ -38,6 +48,7 @@ Component.variables = ({ databaseId }, ctx) => {
 
 Component.query = gql`
   ${BlogInfoFragment}
+  ${NavigationMenu.fragments.entry}
   ${FeaturedImage.fragments.entry}
   ${Blocks.EmergeHomepage.fragments.entry}
   ${Blocks.EmergeCoreClients.fragments.entry}
@@ -80,6 +91,16 @@ Component.query = gql`
     }
     generalSettings {
       ...BlogInfoFragment
+    }
+    headerMenuItems: menuItems(where: { location: PRIMARY }) {
+      nodes {
+        ...NavigationMenuItemFragment
+      }
+    }
+    footerMenuItems: menuItems(where: { location: FOOTER}) {
+      nodes {
+        ...NavigationMenuItemFragment
+      }
     }
   }
 `;

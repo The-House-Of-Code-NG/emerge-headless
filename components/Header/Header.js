@@ -5,6 +5,7 @@ export default function Header({
   menuItems
 }) {
 
+
   return (
       <header className="font-Inter w-full px-[1.25rem] lg:px-[8rem] overflow-hidden">
         <nav className="navbar flex justify-between items-center bg-white text-black py-[2.31rem]">
