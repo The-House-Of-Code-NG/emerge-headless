@@ -1,9 +1,3 @@
-import FeatureImageOne from '../assets/blog/feature-1.svg'
-import FeatureImageTwo from '../assets/blog/feature-2.svg'
-import ArrowIcon from '../assets/blog/arrow-icon.svg'
-import signupimage from '../assets/black-afro.png'
-import vector from '../assets/Vector(2).svg'
-import { Container } from './Container';
 import Image from 'next/image'
 import moment from 'moment';
 
@@ -27,7 +21,8 @@ function generateTagColors() {
     // Apply Tailwind opacity classes
     return {
       lightColor: `${darkColor}-200`, 
-      darkColor: `${darkColor}-800` 
+      darkColor: `${darkColor}-800`, 
+      ringColor: `${darkColor}-400`, 
     };
   }
   
@@ -38,7 +33,7 @@ function generateTagColors() {
     const { lightColor, darkColor } = generateTagColors();
   
     return (
-      <span className={`bg-${lightColor} text-${darkColor} py-1 px-3 leading-none rounded-2xl flex justify-center items-center`}>
+      <span className={`bg-${lightColor} text-${darkColor} py-1 px-3 ring-1 rounded-2xl flex justify-center items-center`}>
         {children}
       </span>
     );
@@ -53,57 +48,57 @@ export function BlogHero() {
     )
 }
 
-export function BlogFeatured() {
-    return (
-       <Container>
-             <div className="grid md:grid-cols-2 grid-cols-1 md:gap-x-8 gap-y-12 w-full mb-[6rem]">
-            <div className="">
-                <div className="mb-6">
-                    <Image src={FeatureImageOne} height={60} className='h-[60px] w-full object-cover rounded-br-[16px] rounded-bl-[16px]' />
-                </div>
-                <div className="w-full">
-                    <span className="text-xl text-[#6941C6] leading-3">Olivia Rhye • 20 Jan 2024</span>
-                    <div className="flex w-full justify-between items-center my-2">
-                        <h4 className="text-[#101828]">UX review presentations</h4>
-                        <Image src={ArrowIcon} />
-                    </div>
-                    <p className='text-[#2D2D2D] text-2xl'>How do you create compelling presentations that wow your colleagues and impress your managers?</p>
-                    <div className="mt-6">
-                        <div className="flex gap-x-2">
-                            <Tag>Design</Tag>
-                            <Tag>Research</Tag>
-                            <Tag>Presentation</Tag>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="flex pt-[1.75rem] w-full">
-                <div className="flex-1 mr-6">
-                    <Image src={FeatureImageTwo} width={320} height={192} className='object-cover rounded-2xl' alt="Feature Two" />
-                </div>
-                <div className="flex-1 w-full">
-                <span className="text-xl text-[#6941C6] leading-3">Lana Steiner • 18 Jan 2024</span>
-                    <div className="flex w-full justify-between items-center my-2">
-                        <h4 className="text-[#101828]">Building your API stack</h4>
-                        <Image src={ArrowIcon} />
-                    </div>
-                    <p className='text-[#2D2D2D] te xt-2xl'>The rise of RESTful APIs has been met by a rise in tools for creating, testing, and manag...</p>
-                    <div className="mt-6">
-                        <div className="flex gap-x-2">
-                            <Tag>Softwere</Tag>
-                            <Tag>Research</Tag>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-       </Container>
-    )
-}
+// export function BlogFeatured() {
+//     return (
+//        <section className='px-[1.25rem] lg:px-[8rem]'>
+//              <div className="grid md:grid-cols-2 grid-cols-1 md:gap-x-8 gap-y-12 w-full mb-[6rem]">
+//             <div className="">
+//                 <div className="mb-6">
+//                     <Image src={FeatureImageOne} height={60} className='h-[60px] w-full object-cover rounded-br-[16px] rounded-bl-[16px]' />
+//                 </div>
+//                 <div className="w-full">
+//                     <span className="text-xl text-[#6941C6] leading-3">Olivia Rhye • 20 Jan 2024</span>
+//                     <div className="flex w-full justify-between items-center my-2">
+//                         <h4 className="text-[#101828]">UX review presentations</h4>
+//                         <Image src="/arrow-icon.svg" />
+//                     </div>
+//                     <p className='text-[#2D2D2D] text-2xl'>How do you create compelling presentations that wow your colleagues and impress your managers?</p>
+//                     <div className="mt-6">
+//                         <div className="flex gap-x-2">
+//                             <Tag>Design</Tag>
+//                             <Tag>Research</Tag>
+//                             <Tag>Presentation</Tag>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//             <div className="flex pt-[1.75rem] w-full">
+//                 <div className="flex-1 mr-6">
+//                     <Image src={FeatureImageTwo} width={320} height={192} className='object-cover rounded-2xl' alt="Feature Two" />
+//                 </div>
+//                 <div className="flex-1 w-full">
+//                 <span className="text-xl text-[#6941C6] leading-3">Lana Steiner • 18 Jan 2024</span>
+//                     <div className="flex w-full justify-between items-center my-2">
+//                         <h4 className="text-[#101828]">Building your API stack</h4>
+//                         <Image src={ArrowIcon} />
+//                     </div>
+//                     <p className='text-[#2D2D2D] te xt-2xl'>The rise of RESTful APIs has been met by a rise in tools for creating, testing, and manag...</p>
+//                     <div className="mt-6">
+//                         <div className="flex gap-x-2">
+//                             <Tag>Softwere</Tag>
+//                             <Tag>Research</Tag>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//        </section>
+//     )
+// }
 
 export const SignupForms = () => {
     return (
-       <Container>
+       <section className='px-[1.25rem] lg:px-[8rem]'>
            <section className="bg-[#100650] bg-auto bg-no-repeat bg-left-top mb-28 rounded-[24px] px-6 md:px-20 pb-12 ">
                <div className="flex flex-col md:flex-row pt-12">
                    <div className="flex-1">
@@ -125,7 +120,7 @@ export const SignupForms = () => {
                     </div>
                </div>
            </section>
-       </Container>
+       </section>
     )
 }
 
@@ -154,7 +149,7 @@ export function BlogList({ posts }) {
         return format.format("MMMM DD, YYYY"); 
     }
     return (
-       <Container>
+       <section className='px-[1.25rem] lg:px-[8rem]'>
             <h2 className='text-[#101828] text-[2rem] mb-8'>All blog posts</h2>
          <div className="grid md:grid-cols-3 grid-cols-1 w-full gap-x-8 gap-y-12 mb-24">
             {posts.map((data, index) => (
@@ -167,7 +162,7 @@ export function BlogList({ posts }) {
                     <div className="flex w-full justify-between items-center my-2">
                         <h4 className="text-[#101828] text-2xl basis-[80%]">{data.title}</h4>
                        <div className='basis-[10%]'>
-                        <Image width={24} height={24} src={ArrowIcon} />
+                        <Image width={24} height={24} src="/arrow-icon.svg" />
                        </div>
                     </div>
                     <p className='text-[#2D2D2D]' dangerouslySetInnerHTML={{ __html: createExcerpt(data.excerpt) }}></p>
@@ -180,6 +175,6 @@ export function BlogList({ posts }) {
             </div>
             ))}
         </div>
-       </Container>
+       </section>
     )
 }
