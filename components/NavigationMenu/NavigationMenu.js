@@ -13,7 +13,6 @@ export default function NavigationMenu({ menuItems, className }) {
     return null;
   }
 
-  // Based on https://www.wpgraphql.com/docs/menus/#hierarchical-data
   const hierarchicalMenuItems = flatListToHierarchical(menuItems);
 
   function renderMenu(items) {
@@ -52,13 +51,11 @@ NavigationMenu.fragments = {
   entry: gql`
     fragment NavigationMenuItemFragment on MenuItem {
       id
-      path
       label
-      parentId
-      cssClasses
-      menu {
-        node {
-          name
+      childItems {
+        nodes {
+          uri
+          label
         }
       }
     }

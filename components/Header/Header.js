@@ -5,6 +5,10 @@ export default function Header({
   menuItems
 }) {
 
+  console.log({
+    menuItems
+  })
+
 
   return (
       <header className="font-Inter w-full px-[1.25rem] lg:px-[8rem] overflow-hidden">

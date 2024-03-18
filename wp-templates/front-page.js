@@ -1,12 +1,19 @@
 import { gql } from '@apollo/client';
 import * as MENUS from '../constants/menus';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
+
 import {
-    FeaturedImage, Footer, NavigationMenu, SEO
+    FeaturedImage,
+    Footer,
+    NavigationMenu,
+    SEO
 } from '../components';
-import Blocks from '../wp-blocks/index'
+
+import Blocks from '../wp-blocks/index';
+
 import {WordPressBlocksViewer} from "@faustwp/blocks";
 import {flatListToHierarchical} from "@faustwp/core";
+
 import Header from "../components/Header/Header";
 
 export default function Component(props) {
@@ -21,10 +28,6 @@ export default function Component(props) {
     const footerMenu = props?.data?.footerMenuItems?.nodes ?? [];
 
 
-    console.log({
-        primaryMenu,
-        footerMenu
-    })
     const { editorBlocks } = props.data.page;
     const blocks = flatListToHierarchical(editorBlocks);
     return (
