@@ -95,7 +95,7 @@ Component.query = gql`
     generalSettings {
       ...BlogInfoFragment
     }
-    headerMenuItems: menuItems(where: { location: PRIMARY }) {
+    headerMenuItems: menuItems(where: { location: PRIMARY, parentDatabaseId: 0, }) {
       nodes {
         ...NavigationMenuItemFragment
       }
