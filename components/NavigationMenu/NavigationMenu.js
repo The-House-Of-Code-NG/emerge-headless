@@ -1,6 +1,5 @@
 import { gql } from '@apollo/client';
 import { useRouter } from 'next/router';
-import { useState } from 'react'; // Import useState
 import { Dropdown, DropdownMenuItem, DropdownNestedMenuItem } from "./Dropdown";
 import Button from "@material-ui/core/Button";
 
@@ -11,15 +10,8 @@ export default function NavigationMenu({ menuItems, className }) {
     return <></>;
   }
 
-  const [showSubmenu, setShowSubmenu] = useState(null);
-  const [showNestedSubmenu, setShowNestedSubmenu] = useState(null);
-
-  
-  
-
   const navigateUrl = (url) => {
-    console.log(url)
-    return router.push(url)
+    return void router.push(url)
   };
 
 
@@ -31,7 +23,7 @@ export default function NavigationMenu({ menuItems, className }) {
        <ul className="flex flex-row items-center space-x-8 ml-[2.25rem]">
        {menuItems.map((item) => (
         <Dropdown
-        trigger={<Button style={{ textTransform: "capitalize !important" }} className='flex gap-2 capitalize font-Inter important' onClick={() => navigateUrl(item.uri)}>{item.label} {item.childItems?.nodes?.length > 0 ? <img src='/chevronDown.svg' className='w-5' alt='Arrow' /> : null}</Button>}
+        trigger={<Button className='flex gap-2 text-[15px] capitalize font-Inter font-[500] important' onClick={() => navigateUrl(item.uri)}>{item.label} {item.childItems?.nodes?.length > 0 ? <img src='/chevronDown.svg' className='w-5' alt='Arrow' /> : null}</Button>}
         menu={item.childItems.nodes.map((i) => (
           <DropdownNestedMenuItem
           label={i.label}
@@ -39,7 +31,7 @@ export default function NavigationMenu({ menuItems, className }) {
           onClick={() => navigateUrl(i.uri)}
           menu={i.childItems?.nodes?.length > 0 && i.childItems.nodes.map((subitem) => (
             <DropdownMenuItem
-              onClick={() => navigateUrl(i.uri)}
+              onClick={() => navigateUrl(subitem.uri)}
             >
               {subitem.label}
             </DropdownMenuItem>
@@ -66,12 +58,12 @@ function renderTrigger(menuItem) {
 
 function renderMenuItems(items) {
   return items.map((item) => (
-    <DropdownNestedMenuItem 
-      key={item.id} 
-      label={item.label} 
+    <DropdownNestedMenuItem
+      key={item.id}
+      label={item.label}
       rightIcon={item.childItems?.nodes?.length > 0 ? <img src='/chevronRight.svg' alt='Arrow' /> : null}
-      menu={item.childItems?.nodes ? renderMenuItems2(item.childItems.nodes) : []} 
-    /> 
+      menu={item.childItems?.nodes ? renderMenuItems2(item.childItems.nodes) : []}
+    />
   ));
 }
 

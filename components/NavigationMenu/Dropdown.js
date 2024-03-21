@@ -80,8 +80,6 @@ export const Dropdown = React.forwardRef(
       });
     };
 
-    console.log("men:", menu)
-
     return (
       <>
         {React.cloneElement(trigger, {

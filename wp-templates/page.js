@@ -1,25 +1,32 @@
 import { gql } from '@apollo/client';
 import * as MENUS from '../constants/menus';
 import {
-  FeaturedImage, Footer, Header,
+  FeaturedImage, Footer, Header, NavigationMenu,
 } from '../components';
 import Blocks from '../wp-blocks/index'
 
 import {flatListToHierarchical} from "@faustwp/core";
 import {WordPressBlocksViewer} from "@faustwp/blocks";
+import {BlogInfoFragment} from "../fragments/GeneralSettings";
 export default function Component(props) {
   if (props.loading) {
     return <>Loading...</>;
   }
 
+  const { title: siteTitle, description: siteDescription } =
+      props?.data?.generalSettings;
+
+
   const { editorBlocks } = props.data.page;
   const blocks = flatListToHierarchical(editorBlocks);
+  const primaryMenu = props?.data?.headerMenuItems?.nodes ?? [];
+  const footerMenu = props?.data?.footerMenuItems?.nodes ?? [];
 
   return (
     <>
-      <Header />
+      <Header description={siteDescription} title={siteTitle} menuItems={primaryMenu} />
       <WordPressBlocksViewer blocks={blocks} />
-      <Footer />
+      <Footer description={siteDescription} title={siteTitle} menuItems={footerMenu} />
     </>
   );
 }
@@ -34,6 +41,8 @@ Component.variables = ({ databaseId }, ctx) => {
 };
 
 Component.query = gql`
+  ${BlogInfoFragment}
+  ${NavigationMenu.fragments.entry}
   ${FeaturedImage.fragments.entry}
   ${Blocks.EmergeServiceHeading.fragments.entry}
   ${Blocks.EmergeServiceHero.fragments.entry}
@@ -66,6 +75,20 @@ Component.query = gql`
       ...${Blocks.EmergeCaseStudy.fragments.key}
     }
       
+    }
+        generalSettings {
+      ...BlogInfoFragment
+    }
+    
+      headerMenuItems: menuItems(where: { location: PRIMARY, parentDatabaseId: 0, }) {
+      nodes {
+        ...NavigationMenuItemFragment
+      }
+    }
+    footerMenuItems: menuItems(where: { location: FOOTER}) {
+      nodes {
+        ...NavigationMenuItemFragment
+      }
     }
   }
 `;
