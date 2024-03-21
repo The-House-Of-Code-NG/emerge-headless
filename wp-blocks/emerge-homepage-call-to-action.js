@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 import {motion} from 'framer-motion'
-import {AnimatedText} from "../pages/test";
+import {AnimatedText} from "../components/AnimatedText";
 
 export default function EmergeHomepageCallToAction (props) {
     const {sectionHeading, tagText, sectionText, buttonText, buttonLink} = props.attributes

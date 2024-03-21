@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 import {motion, useScroll, useTransform} from 'framer-motion'
 import {useRef} from 'react'
-import {AnimatedText} from "../pages/test";
+import {AnimatedText} from "../components/AnimatedText";
 
 export default function EmergeWhatWeDo (props) {
     const targetRef = useRef();

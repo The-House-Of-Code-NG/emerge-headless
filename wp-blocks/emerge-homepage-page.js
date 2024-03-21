@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 import {motion, useScroll, useTransform, useAnimate} from 'framer-motion'
 import {useRef} from 'react'
 import Image from "next/image";
-import {AnimatedText} from "../pages/test";
+import {AnimatedText} from "../components/AnimatedText";
 
 export default function EmergeHomepage (props) {
     const {

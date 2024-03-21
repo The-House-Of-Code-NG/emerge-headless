@@ -15,6 +15,7 @@ const defaultAnimations = {
     },
 };
 
+
 export const AnimatedText = ({
                                  text,
                                  el: Wrapper = "p",
@@ -57,7 +58,7 @@ export const AnimatedText = ({
                 initial="hidden"
                 animate={controls}
                 variants={{
-                    visible: { transition: { staggerChildren: 0.1 } },
+                    visible: { transition: { staggerChildren: 0.05 , ease: "easeInOut" } },
                     hidden: {},
                 }}
                 aria-hidden
