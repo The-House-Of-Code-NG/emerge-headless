@@ -5,6 +5,9 @@ module.exports = {
     "./components/**/*.{html,js}",
   ],
   safelist: [
+    'pointer-events-auto',
+    'visible',
+    'opacity-100',
     {
       pattern: /bg-(red|orange|yellow|green|teal|blue|indigo|purple|pink|gray|black|white|fuchsia|lime|emerald|cyan|sky|violet)-200/, // Match your background colors
     },
