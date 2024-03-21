@@ -52,18 +52,19 @@ export default function EmergeHomepageServicesSlider( props ) {
                             return (
                                 <SwiperSlide
                                     key={ index }
-                                    className={ `pt-8 px-6 flex group bg-[#F7F5FC] flex-col rounded-[20px] hover:bg-[#100650]` }
+                                    className={ `pt-8 transition-all duration-1000 ease-in-out px-6 flex relative group bg-[#F7F5FC] flex-col rounded-[20px]` }
                                 >
+                                    <div className="absolute transition-all duration-700 ease-in-out  z-10 inset-0 rounded-[20px] group-hover:bg-[#100650]  translate-y-[100%] group-hover:translate-y-[0%] transition-transform duration-300" />
 
-                                    <div className="h-[33rem] md:h-[29rem]">
+                                    <div className="h-[33rem] md:h-[29rem] relative z-10">
                                         <img
                                             src={ service.imageUrl }
                                             alt="Service Slide"
                                         />
-                                        <h3 className="group-hover:text-white font-black text-[#0E1218] w-2/3 text-lg font-Satoshi leading-[30px]">
+                                        <h3 className="group-hover:text-white transition-all duration-700 ease-in-out font-black text-[#0E1218] w-2/3 text-lg font-Satoshi leading-[30px]">
                                             { service.serviceHeading }
                                         </h3>
-                                        <p className="group-hover:text-white font-Inter mt-4 font-normal text-lg leading-[30px]">
+                                        <p className="group-hover:text-white transition-all duration-700 ease-in-out font-Inter mt-4 font-normal text-lg leading-[30px]">
                                             { service.serviceText }
                                         </p>
                                     </div>

@@ -1,14 +1,56 @@
-import {motion} from 'framer-motion'
+import {motion, useAnimate, useInView, usePresence} from 'framer-motion'
 import {gql} from "@apollo/client";
+import {useEffect, useRef} from "react";
+
+
 export default function EmergeHomepageWhyUs( props ) {
+    const [scope, animate] = useAnimate();
+    const reason1ref = useRef()
+    const reason2ref = useRef()
+    const reason3ref = useRef()
+    const reason4ref = useRef()
+    const reason5ref = useRef()
+    const reason6ref = useRef()
+
+    const isInView = useInView(scope, {once: true})
     const { attributes } = props;
     const { reason1, reason2, reason3, reason4, reason5, reason6 } = attributes;
+
+    useEffect(() => {
+        const enterAnimation = async  () => {
+            await animate(reason1ref.current, {opacity: 1, duration: 0.5})
+            await animate(reason2ref.current, {opacity: 1, duration: 0.5})
+            await animate(reason3ref.current, {opacity: 1, duration: 0.5})
+            await animate(reason4ref.current, {opacity: 1, duration: 0.5})
+            await animate(reason5ref.current, {opacity: 1, duration: 0.5})
+            await animate(reason6ref.current, {opacity: 1, duration: 0.5})
+        }
+        const exitAnimation = async  () => {
+            await animate(reason1ref.current, {opacity: 0, duration: 0.5})
+            await animate(reason5ref.current, {opacity: 0, duration: 0.5})
+            await animate(reason3ref.current, {opacity: 0, duration: 0.5})
+            await animate(reason4ref.current, {opacity: 0, duration: 0.5})
+            await animate(reason5ref.current, {opacity: 0, duration: 0.5})
+            await animate(reason6ref.current, {opacity: 0, duration: 0.5})
+        }
+
+        if(isInView) {
+            void enterAnimation()
+        } else {
+            void exitAnimation()
+        }
+
+
+    }, [isInView])
+
     return (
-        <motion.section
+        <div
             className="w-full px-[1.25rem] lg:px-[8rem] overflow-hidden"
         >
-            <section className="my-16">
-                <div className="grid grid-cols-2 items-center md:grid-cols-3 gap-y-28">
+            <section ref={scope} className="my-16">
+                <div
+                    ref={reason1ref}
+                    className="grid grid-cols-2 items-center md:grid-cols-3 gap-y-28">
                     <div className="flex flex-col">
                         <svg
                             width="97"
@@ -16,6 +58,7 @@ export default function EmergeHomepageWhyUs( props ) {
                             viewBox="0 0 97 70"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
+
                         >
                             <path
                                 d="M32.5 0.373815C32.5 0.16736 32.6674 0 32.8738 0C68.0136 0 96.5 28.4864 96.5 63.6262V69.5911C96.5 69.8169 96.3169 70 96.0911 70H64.5C46.8269 70 32.5 55.6731 32.5 38V0.373815Z"
@@ -30,8 +73,9 @@ export default function EmergeHomepageWhyUs( props ) {
                             { reason1 }
                         </h3>
                     </div>
-                    <div className="flex flex-col">
+                    <div  ref={reason2ref} className="flex flex-col">
                         <svg
+
                             width="75"
                             height="71"
                             viewBox="0 0 75 71"
@@ -51,8 +95,9 @@ export default function EmergeHomepageWhyUs( props ) {
                             { reason2 }
                         </h3>
                     </div>
-                    <div className="flex flex-col">
+                    <div ref={reason3ref} className="flex flex-col">
                         <svg
+
                             width="87"
                             height="74"
                             viewBox="0 0 87 74"
@@ -72,8 +117,9 @@ export default function EmergeHomepageWhyUs( props ) {
                             { reason3 }
                         </h3>
                     </div>
-                    <div className="flex flex-col">
+                    <div ref={reason4ref} className="flex flex-col">
                         <svg
+
                             width="102"
                             height="108"
                             viewBox="0 0 102 108"
@@ -93,8 +139,9 @@ export default function EmergeHomepageWhyUs( props ) {
                             { reason4 }
                         </h3>
                     </div>
-                    <div className="flex flex-col">
+                    <div ref={reason5ref} className="flex flex-col">
                         <svg
+
                             width="91"
                             height="115"
                             viewBox="0 0 91 115"
@@ -114,8 +161,9 @@ export default function EmergeHomepageWhyUs( props ) {
                             { reason5 }
                         </h3>
                     </div>
-                    <div className="flex flex-col">
+                    <div ref={reason6ref} className="flex flex-col">
                         <svg
+
                             width="102"
                             height="113"
                             viewBox="0 0 102 113"
@@ -137,7 +185,7 @@ export default function EmergeHomepageWhyUs( props ) {
                     </div>
                 </div>
             </section>
-        </motion.section>
+        </div>
     );
 }
 

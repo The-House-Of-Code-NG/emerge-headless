@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import {motion, useScroll, useTransform} from 'framer-motion'
 import {useRef} from 'react'
+import {AnimatedText} from "../pages/test";
 
 export default function EmergeWhatWeDo (props) {
     const targetRef = useRef();
@@ -29,7 +30,6 @@ export default function EmergeWhatWeDo (props) {
         scrollYProgressIncludingOverlap,
         [0.1, 0.80,  0.85, 1],
         ["0", "0", "600vw", "0"]
-        // Adjust values for desired speeds
     );
     const x3 = useTransform(
         scrollYProgressIncludingOverlap,
@@ -46,7 +46,6 @@ export default function EmergeWhatWeDo (props) {
         scrollYProgressIncludingOverlap,
         [0.1, 0.80,  0.85, 1],
         ["0", "0", "-60vh", "0"]
-        // Adjust values for desired speeds
     );
     const y3 = useTransform(
         scrollYProgressIncludingOverlap,
@@ -74,7 +73,12 @@ export default function EmergeWhatWeDo (props) {
                      {tagText}
                     </span>
                         </div>
-                        <h1 className="text-center mt-4 font-black font-Satoshi text-[42px]">{sectionHeading}</h1>
+                        <AnimatedText
+                            el="h1"
+                            className="text-center mt-4 font-black font-Satoshi text-[42px]"
+                            text={sectionHeading}
+                            repeatDelay={10000}
+                        />
                     </motion.div>
                     <motion.div style={{opacity, scale}} className="mt-[5.19rem] md:mt-14 flex flex-col md:flex-row space-y-[1.81rem] md:space-y-0 md:space-x-16 md:items-center md:justify-between">
                         <motion.div style={{ x:x1, opacity, y:y1}}  className="origin-top flex flex-col w-full  md:w-1/3">

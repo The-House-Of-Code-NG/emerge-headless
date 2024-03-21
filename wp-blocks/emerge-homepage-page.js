@@ -2,6 +2,7 @@ import { gql } from '@apollo/client';
 import {motion, useScroll, useTransform, useAnimate} from 'framer-motion'
 import {useRef} from 'react'
 import Image from "next/image";
+import {AnimatedText} from "../pages/test";
 
 export default function EmergeHomepage (props) {
     const {
@@ -32,17 +33,26 @@ export default function EmergeHomepage (props) {
                         {tagText}
                     </div>
                     <div ref={scope} className='flex flex-col mt-4'>
-                        <h1 className="font-black font-Satoshi text-[3.5rem] md:text-[56px] leading-[63px]">
-                            {sectionHeading}
-                        </h1>
+                        <AnimatedText
+                            el="h1"
+                            text={sectionHeading}
+                            className="font-black font-Satoshi text-[3.5rem] md:text-[56px] leading-[63px]"
+                            repeatDelay={10000}
+                        />
                         <p className="leading-[35px] text-[1.125rem] md:text-lg font-Inter mt-6">
                             {sectionText}
                         </p>
                     </div>
                     <div>
-                        <a href={buttonLink ?? '/'} className="mt-5 text-white text-lg text-center font-Inter font-semibold bg-[#8959FF] inline-flex rounded-[8px] px-3.5 py-2">
+                        <motion.a
+                            whileHover={{
+                                scale: 1.1,
+                                backgroundColor: "#d62ba3"
+                            }}
+                            transition={{ duration: 0.5, yoyo: Infinity }}
+                            href={buttonLink ?? '/'} className="mt-5 text-white text-lg text-center font-Inter font-semibold bg-[#8959FF] inline-flex rounded-[8px] px-3.5 py-2">
                             {buttonText}
-                        </a>
+                        </motion.a>
                         <div className='flex mt-[1.88rem] space-x-1 md:mt-14 md:space-x-6 flex-row items-center'>
                             <img  className="w-1/3 md:w-full" src={certificateOne} />
                             <img  className="w-1/3 md:w-full" src={certificateTwo} />
@@ -51,7 +61,14 @@ export default function EmergeHomepage (props) {
                     </div>
                 </div>
                 <div className="w-full md:w-1/2 mt-[3.1rem] md:mt-0 flex flex-row md:justify-center">
-                    <img className="w-[500px] h-[480px] self-end" src={mainImage} alt="Emerge digital" />
+                    <div className="w-full md:w-[500px] h-[480px] self-end relative">
+                        <Image
+                            src={mainImage}
+                            alt="Emerge digital"
+                            layout='fill'
+                            objectFit='contain'
+                        />
+                    </div>
                 </div>
             </motion.div>
         </motion.section>

@@ -2,6 +2,7 @@
 module.exports = {
   content: [
     "./wp-blocks/**/*.{html,js}",
+    "./pages/**/*.{html,js}",
     "./components/**/*.{html,js}",
   ],
   safelist: [

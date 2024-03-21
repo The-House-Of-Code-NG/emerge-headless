@@ -16,9 +16,15 @@ export default function EmergeHomepageServices (props) {
                     <p className="font-Inter mt-7 mb-11 text-white  leading-[1.6rem] text-lg font-normal">
                         {sectionText}
                     </p>
-                    <a href={buttonLink} className="mt-5 text-white text-lg text-center font-Inter font-semibold bg-[#8959FF] inline-flex rounded-[8px] px-3.5 py-2">
+                    <motion.a
+                        whileHover={{
+                            scale: 1.1,
+                            backgroundColor: "#d62ba3"
+                        }}
+                        transition={{ duration: 0.5, yoyo: Infinity }}
+                        href={buttonLink} className="mt-5 text-white text-lg text-center font-Inter font-semibold bg-[#8959FF] inline-flex rounded-[8px] px-3.5 py-2">
                         {buttonText}
-                    </a>
+                    </motion.a>
                 </div>
             </div>
         </motion.section>
