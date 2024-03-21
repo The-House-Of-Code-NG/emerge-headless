@@ -3,10 +3,6 @@ import { useRouter } from 'next/router';
 import { useState } from 'react'; // Import useState
 import { Dropdown, DropdownMenuItem, DropdownNestedMenuItem } from "./Dropdown";
 import Button from "@material-ui/core/Button";
-import ArrowRight from "@mui/icons-material/ArrowRight";
-
-import { Box, Link } from "@mui/material";
-
 
 export default function NavigationMenu({ menuItems, className }) {
   const router = useRouter()

@@ -17,7 +17,6 @@
     "@faustwp/cli": "^2.0.0",
     "@faustwp/core": "^2.1.2",
     "@material-ui/core": "^4.12.4",
-    "@mui/icons-material": "^5.15.14",
     "@mui/material": "^5.15.14",
     "@wordpress/base-styles": "^4.36.0",
     "@wordpress/block-library": "^7.19.0",
