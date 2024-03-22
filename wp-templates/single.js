@@ -13,6 +13,7 @@ import {
 } from '../components';
 import * as MENUS from '../constants/menus';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
+import {BlogHero} from "../components/SingleBlog";
 
 const GET_LAYOUT_QUERY = gql`
   ${BlogInfoFragment}
@@ -41,7 +42,15 @@ const GET_POST_QUERY = gql`
     post(id: $databaseId, idType: DATABASE_ID, asPreview: $asPreview) {
       title
       content
+      excerpt
       date
+      tags {
+            nodes {
+            name
+            slug
+            id
+            }
+        }
       author {
         node {
           name
@@ -72,23 +81,14 @@ export default function Component(props) {
       <SEO
         imageUrl={featuredImage?.node?.sourceUrl}
       />
-      <Header
-
-        menuItems={primaryMenu}
-      />
-      <Main>
-        <>
-          <EntryHeader
-            title={title}
+      <main>
+        <Header  menuItems={primaryMenu}/>
+        <BlogHero  post={post}/>
+        <EntryHeader
             image={featuredImage?.node}
-            date={date}
-            author={author?.node?.name}
-          />
-          <Container>
-            <ContentWrapper content={content} />
-          </Container>
-        </>
-      </Main>
+        />
+        <ContentWrapper content={content} />
+      </main>
       <Footer menuItems={footerMenu} />
     </>
   );

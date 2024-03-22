@@ -17,13 +17,12 @@ export default function FeaturedImage({
   layout = layout ?? 'fill';
 
   return src && width && height ? (
-    <figure className={className}>
+    <figure>
       <Image
         src={src}
         alt={altText}
-        layout={layout}
-        width={width}
-        height={height}
+        width={1216}
+        height={640}
         priority={priority}
         {...props}
       />
