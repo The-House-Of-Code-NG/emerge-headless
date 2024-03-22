@@ -52,6 +52,7 @@ Component.query = gql`
   ${Blocks.EmergeServiceStages.fragments.entry}
   ${Blocks.EmergeCoreFaq.fragments.entry}
   ${Blocks.EmergeCaseStudy.fragments.entry}
+  ${Blocks.EmergeCoreNewsletter.fragments.entry}
   query GetPageData(
     $databaseId: ID!
     $asPreview: Boolean = false
@@ -73,6 +74,7 @@ Component.query = gql`
       ...${Blocks.EmergeServiceStages.fragments.key}
       ...${Blocks.EmergeCoreFaq.fragments.key}
       ...${Blocks.EmergeCaseStudy.fragments.key}
+      ...${Blocks.EmergeCoreNewsletter.fragments.key}
     }
       
     }

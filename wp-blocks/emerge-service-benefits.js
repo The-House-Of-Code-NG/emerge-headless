@@ -9,9 +9,16 @@ export default function EmergeServiceBenefits (props) {
         return JSON.parse(benefits)
     }, [benefits])
 
+
+    const memoizedLogos = useMemo(() => {
+        const client1 = clients?.split(',')
+        const client2 = clients?.split(',')
+        return [...client1, ...client2]
+    }, [clients])
+
     return (
         <motion.section
-            className="w-full px-[1.25rem] py-16 lg:px-[8rem] overflow-hidden bg-gradient-to-b from-[#F4F0FF] to-transparent"
+            className="w-full py-16  overflow-hidden bg-gradient-to-b from-[#F4F0FF] to-transparent"
         >
             {showClients && (
                 <>
@@ -22,39 +29,57 @@ export default function EmergeServiceBenefits (props) {
                             { clientsHeading}
                         </h3>
                     </div>
-                    <div className="marquee-container">
-                        <div className="flex flex-row marquee-content space-x-2">
-                            {	clients
-                                .split( ',' )
-                                .map( ( logo, index ) => (
-                                    <img
-                                        className="w-[124.32px] h-[44.76px]"
-                                        src={ logo.trim()}
-                                        alt="Client Emerge"
-                                        key={ index }
-                                    />
-                                ) ) }
+
+                    <div className="relative overflow-hidden">
+                        <div className="flex gap-4 marque">
+                            <div className="marquee__group">
+                                {memoizedLogos.map((logo, index) => (
+                                    <div className="max-w-[222px] max-h-[181px]">
+                                        <img
+                                            className="object-cover"
+                                            src={ logo.trim() }
+                                            alt="Client Emerge"
+                                            key={ index }
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="marquee__group">
+                                {memoizedLogos.map((logo, index) => (
+                                    <div className="max-w-[222px] max-h-[181px]">
+                                        <img
+                                            className="object-cover"
+                                            src={ logo.trim() }
+                                            alt="Client Emerge"
+                                            key={ index }
+                                        />
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </>
             )}
-        <dev className="benefits-container  mt-24">
-            <h2 className="benefits-title">{ title }</h2>
-            <div className="benefits-grid">
-                {memoizedBenefits.map((benefit, index) => (
-                    <div className="benefits-item" key={index}>
-                        <img
-                            src="/check-icon.svg"
-                            alt="Check Icon"
-                            className="benefits-item-check"
-                        />
-                        <p className="benefits-item-text">
-                            { benefit }
-                        </p>
+            <div className="px-[1.25rem]  lg:px-[8rem]">
+                <div className="benefits-container  mt-24">
+                    <h2 className="benefits-title">{ title }</h2>
+                    <div className="benefits-grid">
+                        {memoizedBenefits.map((benefit, index) => (
+                            <div className="benefits-item" key={index}>
+                                <img
+                                    src="/check-icon.svg"
+                                    alt="Check Icon"
+                                    className="benefits-item-check"
+                                />
+                                <p className="benefits-item-text">
+                                    { benefit }
+                                </p>
+                            </div>
+                        ))}
                     </div>
-                ))}
+                </div>
             </div>
-        </dev>
+
         </motion.section>
     )
 }

@@ -74,7 +74,7 @@ export function BlogList({ posts }) {
     return (
        <section className='px-[1.25rem] lg:px-[8rem]'>
             <h2 className='text-[#101828] text-[2rem] mb-8'>All blog posts</h2>
-         <div className="grid md:grid-cols-3 grid-cols-1 w-full gap-x-8 gap-y-12 mb-24">
+         <div className="grid md:grid-cols-3 auto-cols-fr grid-cols-1 w-full gap-x-8 gap-y-12 mb-24">
             {posts.map((data, index) => (
                 <Link key={index} href={`/${data.slug}`} className="!cursor-pointer">
                 <div className="!cursor-pointer">
@@ -84,7 +84,7 @@ export function BlogList({ posts }) {
                 <div className="w-full">
                     <span className="text-sm text-[#6941C6] leading-3">{data.author.node.name} • {formatDate(data.date)}</span>
                     <div className="flex w-full justify-between items-center my-2">
-                        <h4 className="text-[#101828] text-2xl basis-[80%]">{data.title}</h4>
+                        <h4 className="text-[#101828] text-2xl basis-[80%]">{createExcerpt(data.title, 8)}</h4>
                        <div className='basis-[10%]'>
                         <Image width={24} height={24} src="/arrow-icon.svg" />
                        </div>

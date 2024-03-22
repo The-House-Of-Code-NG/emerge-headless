@@ -17,12 +17,9 @@ export default function Page(props) {
   const title = props.title;
 
   const { title: siteTitle, description: siteDescription } = data?.generalSettings || {};
-  // Add default in case 'generalSettings' is null
 
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
   const footerMenu = data?.footerMenuItems?.nodes ?? [];
-
-  console.log("menus", primaryMenu)
 
   return (
     <>

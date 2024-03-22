@@ -16,6 +16,7 @@ import {flatListToHierarchical} from "@faustwp/core";
 
 import Header from "../components/Header/Header";
 import EmergeHomepagePosts from "../wp-blocks/Emerge-homepage-posts";
+import {HubstopContactUs} from "../components/HubstopContactUs";
 
 export default function Component(props) {
     if (props.loading) {
@@ -36,6 +37,7 @@ export default function Component(props) {
             <SEO title={siteTitle} description={siteDescription} />
             <Header description={siteDescription} title={siteTitle} menuItems={primaryMenu} />
             <WordPressBlocksViewer blocks={blocks}  />
+            <HubstopContactUs />
             <Footer description={siteDescription} title={siteTitle} menuItems={footerMenu} />
         </>
     );
