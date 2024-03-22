@@ -13,7 +13,7 @@ import {
 } from '../components';
 import * as MENUS from '../constants/menus';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
-import {BlogHero} from "../components/SingleBlog";
+import {ArticleBottom, BlogHero, BlogList} from "../components/SingleBlog";
 
 const GET_LAYOUT_QUERY = gql`
   ${BlogInfoFragment}
@@ -54,9 +54,36 @@ const GET_POST_QUERY = gql`
       author {
         node {
           name
+          avatar {
+            url
+          }
         }
       }
       ...FeaturedImageFragment
+    }
+    posts {
+      nodes {
+        title
+      content
+      excerpt
+      date
+      tags {
+            nodes {
+            name
+            slug
+            id
+            }
+        }
+      author {
+        node {
+          name
+          avatar {
+            url
+          }
+        }
+      }
+      ...FeaturedImageFragment
+      }
     }
   }
 `;
@@ -67,7 +94,7 @@ export default function Component(props) {
     return <>Loading...</>;
   }
 
-  const { post } = useFaustQuery(GET_POST_QUERY);
+  const { post, posts } = useFaustQuery(GET_POST_QUERY);
   const {  headerMenuItems, footerMenuItems } =
     useFaustQuery(GET_LAYOUT_QUERY);
 
@@ -88,6 +115,12 @@ export default function Component(props) {
             image={featuredImage?.node}
         />
         <ContentWrapper content={content} />
+        <Container>
+        <div className='md:w-[720px] w-full m-auto'>
+          <ArticleBottom article={post} />
+        </div>
+        </Container>
+        <BlogList posts={posts.nodes} />
       </main>
       <Footer menuItems={footerMenu} />
     </>
