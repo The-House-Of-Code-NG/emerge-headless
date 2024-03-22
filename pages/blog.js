@@ -5,6 +5,7 @@ import {
   Header,
   Footer,
   SEO,
+  NavigationMenu
 } from '../components';
 import { getNextStaticProps } from '@faustwp/core';
 import { BlogHero, BlogList } from '../components/Blog';
@@ -20,6 +21,8 @@ export default function Page(props) {
 
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
   const footerMenu = data?.footerMenuItems?.nodes ?? [];
+
+  console.log("menus", primaryMenu)
 
   return (
     <>
@@ -41,6 +44,7 @@ export default function Page(props) {
 }
 
 Page.query = gql`
+${NavigationMenu.fragments.entry}
 query GetPosts {
     posts {
       nodes {
@@ -81,6 +85,16 @@ query GetPosts {
             }
         }
       } 
+    }
+    headerMenuItems: menuItems(where: { location: PRIMARY, parentDatabaseId: 0, }) {
+      nodes {
+        ...NavigationMenuItemFragment
+      }
+    }
+    footerMenuItems: menuItems(where: { location: FOOTER}) {
+      nodes {
+        ...NavigationMenuItemFragment
+      }
     }
   }
 `;
