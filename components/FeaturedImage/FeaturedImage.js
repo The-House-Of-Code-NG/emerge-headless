@@ -42,7 +42,7 @@ FeaturedImage.fragments = {
             width
             height
           }
-        }
+        } 
       }
     }
   `,
