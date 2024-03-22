@@ -20,10 +20,10 @@ export default function NavigationMenu({ menuItems, className }) {
       role="navigation"
       aria-label={`${menuItems[0]?.menu?.node?.name} menu`}
     >
-       <ul className="flex flex-row items-center space-x-8 ml-[2.25rem]">
+       <ul className="flex flex-row items-center ml-[2.25rem]">
        {menuItems.map((item) => (
         <Dropdown
-        trigger={<Button className='flex gap-2 text-[15px] capitalize font-Inter font-[500] important' onClick={() => navigateUrl(item.uri)}>{item.label} {item.childItems?.nodes?.length > 0 ? <img src='/chevronDown.svg' className='w-5' alt='Arrow' /> : null}</Button>}
+        trigger={<Button className='flex gap-2 !px-2 py-[6px] text-[15px] !capitalize !font-Inter font-[500] important' onClick={() => navigateUrl(item.uri)}>{item.label} {item.childItems?.nodes?.length > 0 ? <img src='/chevronDown.svg' className='w-5' alt='Arrow' /> : null}</Button>}
         menu={item.childItems.nodes.map((i) => (
           <DropdownNestedMenuItem
           label={i.label}

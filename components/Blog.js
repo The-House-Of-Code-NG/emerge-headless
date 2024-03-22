@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import moment from 'moment';
 import classNames from "classnames";
 
@@ -41,8 +42,8 @@ function generateTagColors() {
 export function BlogHero() {
     return (
         <div className="h-[288px] flex justify-center items-center flex-col w-full bg-white">
-            <span className="text-[#6941C6] md:text-2xl text-xl">Our Blog</span>
-            <h2 className="text-[#101828] md:text-[3.75rem] text-center text-[2.75rem] leading-[3rem] capitalize">Stories and interviews</h2>
+            <span className="text-[#6941C6] mb-3 !font-Inter !font-semibold">Our Blog</span>
+            <h2 className="text-[#101828] md:text-[3.75rem] text-center text-[2.75rem] leading-[60px] font-black !font-Satoshi capitalize">Stories and interviews</h2>
         </div>
     )
 }
@@ -75,7 +76,8 @@ export function BlogList({ posts }) {
             <h2 className='text-[#101828] text-[2rem] mb-8'>All blog posts</h2>
          <div className="grid md:grid-cols-3 grid-cols-1 w-full gap-x-8 gap-y-12 mb-24">
             {posts.map((data, index) => (
-                <div key={index} className="">
+                <Link key={index} href={`/${data.slug}`} className="!cursor-pointer">
+                <div className="!cursor-pointer">
                 <div className="mb-6">
                     <Image src={data.featuredImage ? data.featuredImage.node.sourceUrl : ""} className='w-full object-cover' alt={data.title} width={384} height={240} />
                 </div>
@@ -94,7 +96,8 @@ export function BlogList({ posts }) {
                         </div>
                     </div>
                 </div>
-            </div>
+                </div>
+            </Link>
             ))}
         </div>
        </section>
