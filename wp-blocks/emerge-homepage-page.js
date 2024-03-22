@@ -23,7 +23,7 @@ export default function EmergeHomepage (props) {
 
     })
 
-    const opacity = useTransform(scrollYProgress, [0.3, 0.5, 0.9], [1, 0.3, 0])
+    const opacity = useTransform(scrollYProgress, [0.5, 0.9], [1, 0])
     const scale = useTransform(scrollYProgress, [0.5, 1], [1, 0.8]);
     return (
         <motion.section ref={target} style={{opacity}} className="w-full px-[1.25rem] lg:px-[8rem] overflow-hidden">
