@@ -17,19 +17,17 @@ import { BlogInfoFragment } from '../fragments/GeneralSettings';
 const GET_LAYOUT_QUERY = gql`
   ${BlogInfoFragment}
   ${NavigationMenu.fragments.entry}
-  query GetLayout(
-    $headerLocation: MenuLocationEnum
-    $footerLocation: MenuLocationEnum
-  ) {
+  query GetLayout {
     generalSettings {
       ...BlogInfoFragment
     }
-    headerMenuItems: menuItems(where: { location: $headerLocation }) {
+    
+    headerMenuItems: menuItems(where: { location: PRIMARY, parentDatabaseId: 0, }) {
       nodes {
         ...NavigationMenuItemFragment
       }
     }
-    footerMenuItems: menuItems(where: { location: $footerLocation }) {
+    footerMenuItems: menuItems(where: { location: FOOTER}) {
       nodes {
         ...NavigationMenuItemFragment
       }
@@ -61,10 +59,10 @@ export default function Component(props) {
   }
 
   const { post } = useFaustQuery(GET_POST_QUERY);
-  const { generalSettings, headerMenuItems, footerMenuItems } =
+  const {  headerMenuItems, footerMenuItems } =
     useFaustQuery(GET_LAYOUT_QUERY);
 
-  const { title: siteTitle, description: siteDescription } = generalSettings;
+  // const { title: siteTitle, description: siteDescription } = generalSettings;
   const primaryMenu = headerMenuItems?.nodes ?? [];
   const footerMenu = footerMenuItems?.nodes ?? [];
   const { title, content, featuredImage, date, author } = post ?? {};
@@ -72,13 +70,10 @@ export default function Component(props) {
   return (
     <>
       <SEO
-        title={siteTitle}
-        description={siteDescription}
         imageUrl={featuredImage?.node?.sourceUrl}
       />
       <Header
-        title={siteTitle}
-        description={siteDescription}
+
         menuItems={primaryMenu}
       />
       <Main>
@@ -94,7 +89,7 @@ export default function Component(props) {
           </Container>
         </>
       </Main>
-      <Footer title={siteTitle} menuItems={footerMenu} />
+      <Footer menuItems={footerMenu} />
     </>
   );
 }

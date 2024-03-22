@@ -15,6 +15,7 @@ import {WordPressBlocksViewer} from "@faustwp/blocks";
 import {flatListToHierarchical} from "@faustwp/core";
 
 import Header from "../components/Header/Header";
+import EmergeHomepagePosts from "../wp-blocks/Emerge-homepage-posts";
 
 export default function Component(props) {
     if (props.loading) {
@@ -34,7 +35,7 @@ export default function Component(props) {
         <>
             <SEO title={siteTitle} description={siteDescription} />
             <Header description={siteDescription} title={siteTitle} menuItems={primaryMenu} />
-            <WordPressBlocksViewer blocks={blocks} />
+            <WordPressBlocksViewer blocks={blocks}  />
             <Footer description={siteDescription} title={siteTitle} menuItems={footerMenu} />
         </>
     );
@@ -65,6 +66,7 @@ Component.query = gql`
   ${Blocks.EmergeCoreFaq.fragments.entry}
   ${Blocks.EmergeHomepageReviews.fragments.entry}
   ${Blocks.EmergeHomepageTeam.fragments.entry}
+  ${Blocks.EmergeHomepagePosts.fragments.entry}
   query GetPageData(
     $databaseId: ID!
     $asPreview: Boolean = false
@@ -89,12 +91,14 @@ Component.query = gql`
     ...${Blocks.EmergeCoreFaq.fragments.key}
     ...${Blocks.EmergeHomepageReviews.fragments.key}
     ...${Blocks.EmergeHomepageTeam.fragments.key}
-    }
+    ...${Blocks.EmergeHomepagePosts.fragments.key}
+    }    
       ...FeaturedImageFragment
     }
     generalSettings {
       ...BlogInfoFragment
     }
+    
     headerMenuItems: menuItems(where: { location: PRIMARY, parentDatabaseId: 0, }) {
       nodes {
         ...NavigationMenuItemFragment

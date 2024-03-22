@@ -17,6 +17,7 @@ import EmergeServicesSlider from "./emerge-services-slider";
 import EmergeServiceServices from "./emerge-service-services";
 import EmergeServiceStages from './emerge-service-stages';
 import EmergeCaseStudy from "./emerge-case-study";
+import EmergeHomepagePosts from "./Emerge-homepage-posts";
 
 export default  {
     EmergeHomepage,
@@ -37,5 +38,6 @@ export default  {
     EmergeServicesSlider,
     EmergeServiceServices,
     EmergeServiceStages,
-    EmergeCaseStudy
+    EmergeCaseStudy,
+    EmergeHomepagePosts
 }

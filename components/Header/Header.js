@@ -1,4 +1,5 @@
 import NavigationMenu from "../NavigationMenu/NavigationMenu";
+import Link from "next/link";
 
 export default function Header({
   title = 'Emerge Digital',
@@ -11,7 +12,9 @@ export default function Header({
       <header className="font-Inter w-full px-[1.25rem] lg:px-[8rem] overflow-hidden">
         <nav className="navbar flex justify-between items-center bg-white text-black py-[2.31rem]">
           <div className="flex items-center">
-            <img src="/logo.svg" alt="Emerge digital logo"/>
+            <Link href="/">
+              <img src="/logo.svg" alt="Emerge digital logo"/>
+            </Link>
             <div className="hidden lg:flex">
               <NavigationMenu menuItems={menuItems} />
             </div>

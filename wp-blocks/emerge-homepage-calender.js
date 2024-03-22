@@ -6,7 +6,7 @@ export default function EmergeHomepageCalender( props ) {
     const { attributes } = props;
     const { heading, tagText } = attributes;
     return (
-            <motion.section className="bg-[url('/talk-cover.svg')] pt-20 bg-[#E6F7F3] my-24">
+            <motion.section className="bg-[url('/talk-cover.svg')] pt-20 bg-[#E6F7F3] mb-24">
                 <div className="flex flex-col items-center">
 					<span className="text-center font-Inter text-[#100650] font-medium uppercase h-[36px] bg-[#B5E0D6]/40 px-2.5 rounded-[6px] py-2">
 						{ tagText }

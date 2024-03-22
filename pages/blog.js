@@ -3,11 +3,7 @@ import * as MENUS from '../constants/menus';
 import { BlogInfoFragment } from '../fragments/GeneralSettings';
 import {
   Header,
-  Hero,
   Footer,
-  Main,
-  Container,
-  NavigationMenu,
   SEO,
 } from '../components';
 import { getNextStaticProps } from '@faustwp/core';
@@ -19,7 +15,8 @@ export default function Page(props) {
   });
   const title = props.title;
 
-  const { title: siteTitle, description: siteDescription } = data?.generalSettings || {}; // Add default in case 'generalSettings' is null
+  const { title: siteTitle, description: siteDescription } = data?.generalSettings || {};
+  // Add default in case 'generalSettings' is null
 
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
   const footerMenu = data?.footerMenuItems?.nodes ?? [];
@@ -32,7 +29,7 @@ export default function Page(props) {
         description={siteDescription}
         menuItems={primaryMenu}
       />
-      
+
 
           <BlogHero />
           <BlogList posts={data?.posts?.nodes} />
