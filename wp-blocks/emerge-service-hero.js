@@ -16,12 +16,17 @@ export default function EmergeServiceHero (props) {
                     <div className={ `tag` }>{ tagText }</div>
                     <h2 className="hero-title">{ title }</h2>
                     <p className={ `hero-text` }>{ richText }</p>
-                    <a
+                    <motion.a
+                        whileHover={{
+                            scale: 1.1,
+                            backgroundColor: "#d62ba3"
+                        }}
+                        transition={{ duration: 0.5, yoyo: Infinity }}
                         href={ buttonLink }
                         className="mt-5 text-white text-lg text-center font-Inter font-semibold bg-[#8959FF] inline-flex rounded-[8px] px-3.5 py-2"
                     >
                         { buttonText }
-                    </a>
+                    </motion.a>
                 </div>
                 <div className="hero-image-wrapper">
                     <img
