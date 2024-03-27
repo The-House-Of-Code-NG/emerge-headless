@@ -36,7 +36,7 @@ export default function EmergeServicesSlider (props) {
     }, [services])
 
     return (
-        <motion.section className="w-full pl-[1.25rem] mt-24 lg:pl-[8rem] overflow-hidden">
+        <motion.section className="w-full pl-[20px] mt-24 lg:pl-[128px] overflow-hidden">
             <div className="capabilities-content">
                 <div className="capabilities-text">
                     <h2 className="capabilities-title">{ heading }</h2>
@@ -44,9 +44,9 @@ export default function EmergeServicesSlider (props) {
                 </div>
                 <Swiper { ...sliderOptions } className="w-full flex">
                     {memoizedServices.map((service, index) => (
-                        <SwiperSlide className=" capability-item" key={index}>
+                        <SwiperSlide className="capability-item !lg:mr-[2rem] !mr-[17px] flex-main lg:!flex-main-lg" key={index}>
                             <img
-                                className="w-[51px] h-[51px]"
+                                className="w-[3.1875rem] h-[3.1875rem]"
                                 src={ service.imageUrl }
                                 alt={ service.heading }
                             />
@@ -81,7 +81,7 @@ export default function EmergeServicesSlider (props) {
                 </Swiper>
             </div>
             <div className="flex flex-row items-center w-full justify-end md:px-16">
-                <div className="flex mt-12 flex-row space-x-5 items-center">
+                <div className="flex mt-12 flex-row space-x-5 items-center mr-2">
                     <button className="service-slider-prev">
                         <svg
                             width="46"

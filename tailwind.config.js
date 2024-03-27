@@ -18,6 +18,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      flex: {
+        'main': '0 0 85%',
+        'main-lg': '0 0 20.75rem',
+      },
       backgroundImage: {
         'section-4': "url('/art.svg')",
         'section-4-mobile': "url('/artmobile.svg')",

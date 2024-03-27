@@ -125,7 +125,7 @@ export default function Footer({titles, menus}) {
                     </div>
                     <div className='w-full border-t border-black opacity-[20%] mt-[2.93rem]' />
                     <div className='flex flex-col lg:flex-row w-full justify-between mt-[2.93rem]'>
-                        <p className='text-[0.87rem] leading-[1.5rem] mb-6'>© 2023 Emerge Digital. All rights reserved</p>
+                        <p className='lg:text-left text-center text-[0.87rem] leading-[1.5rem] mb-6'>© 2023 Emerge Digital. All rights reserved</p>
                         <div className="inline-flex items-start justify-center gap-[17px] relative">
                             <div className="relative w-fit mt-[-1.00px] [font-family:'Inter-Medium',Helvetica] font-medium text-black text-[14px] tracking-[0] leading-[24.6px] underline whitespace-nowrap">
                                 <a href='#'>

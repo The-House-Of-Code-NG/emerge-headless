@@ -2,6 +2,7 @@ import { gql } from '@apollo/client';
 import { useRouter } from 'next/router';
 import { Dropdown, DropdownMenuItem, DropdownNestedMenuItem } from "./Dropdown";
 import Button from "@material-ui/core/Button";
+import { Box } from '@mui/material';
 
 export default function NavigationMenu({ menuItems, className }) {
   const router = useRouter()
@@ -18,12 +19,13 @@ export default function NavigationMenu({ menuItems, className }) {
   return (
     <nav
       role="navigation"
+      className='w-full'
       aria-label={`${menuItems[0]?.menu?.node?.name} menu`}
     >
-       <ul className="flex flex-row items-center ml-[2.25rem]">
+      <Box className="flex w-full flex-col lg:flex-row items-center lg:ml-[2.25rem]">
        {menuItems.map((item) => (
         <Dropdown
-        trigger={<Button className='flex gap-2 !px-2 py-[6px] text-[15px] !capitalize !font-Inter font-[500] important' onClick={() => navigateUrl(item.uri)}>{item.label} {item.childItems?.nodes?.length > 0 ? <img src='/chevronDown.svg' className='w-5' alt='Arrow' /> : null}</Button>}
+        trigger={<Button className='w-full lg:justify-normal !px-[1.25rem] lg:!px-2 !justify-between !flex gap-2  py-[6px] text-[15px] !capitalize !font-Inter font-[500]'><div onClick={() => navigateUrl(item.uri)}>{item.label}</div> {item.childItems?.nodes?.length > 0 ? <img src='/chevronDown.svg' className='w-5' alt='Arrow' /> : null}</Button>}
         menu={item.childItems.nodes.map((i) => (
           <DropdownNestedMenuItem
           label={i.label}
@@ -41,39 +43,11 @@ export default function NavigationMenu({ menuItems, className }) {
          }
       />
        ))}
-    </ul>
+    </Box>
     </nav>
   );
 }
 
-function renderTrigger(menuItem) {
-  return (
-    <li className="group py-2 px-2.5 mega-menu w-full">
-      <button  className="cursor-pointer relative flex items-center text-sm xl:text-base text-current transition-all duration-300 group-hover:text-blue-500 font-medium after:absolute after:-bottom-2.5 after:-left-2.5 after:w-0 group-hover:after:w-[calc(100%_+_20px)] after:transition-all after:h-0.5 after:bg-blue-400">
-        {menuItem.label}
-      </button>
-    </li>
-  );
-}
-
-function renderMenuItems(items) {
-  return items.map((item) => (
-    <DropdownNestedMenuItem
-      key={item.id}
-      label={item.label}
-      rightIcon={item.childItems?.nodes?.length > 0 ? <img src='/chevronRight.svg' alt='Arrow' /> : null}
-      menu={item.childItems?.nodes ? renderMenuItems2(item.childItems.nodes) : []}
-    />
-  ));
-}
-
-function renderMenuItems2(items) {
-  return items.map((item) => (
-    <DropdownMenuItem onClick={() => {}}>
-      {item.label}
-    </DropdownMenuItem>
-  ));
-}
 
 NavigationMenu.fragments = {
   entry: gql`

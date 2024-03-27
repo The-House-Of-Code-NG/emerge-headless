@@ -15,9 +15,8 @@ export default function EmergeHomepageCalender( props ) {
                         { heading }
                     </h3>
                     <div
-                        className="mt-7 px-3.5 md:px-0"
+                        className="mt-7 lg:px-3.5 md:px-0 w-full lg:min-w-[400px]"
                         style={ {
-                            minWidth: 400,
                             height: 511,
                             overflow: 'hidden',
                         } }

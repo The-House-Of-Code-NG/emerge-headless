@@ -3,6 +3,7 @@ import Image from 'next/image'
 import moment from "moment";
 import {createExcerpt} from "./Blog";
 import Link from 'next/link'
+import { useState } from 'react';
 
 const colorNames = [
     "red", "orange", "yellow", "green", "teal", "blue", "indigo", "purple",
@@ -123,11 +124,25 @@ function Button({ children, size, onClick }) {
 
 export function ArticleBottom({ article }) {
 
+  const [clicked, setClicked] = useState(false)
+
   function formatDate(date) {
     const format = moment(date)
 
     return format.format("MMMM DD, YYYY");
 }
+
+const postLink = window.location.href; 
+
+  const handleCopyLink = () => {
+    copyToClipboard(postLink); 
+    setClicked(true)
+
+    setTimeout(() => { 
+      setClicked(false);
+    }, 2000); 
+  };
+
 
   return (
     <div className="flex md:flex-row flex-col justify-between md:items-center items-left mt-6">
@@ -139,11 +154,11 @@ export function ArticleBottom({ article }) {
                     </div>
                 </div>
                 <div className="flex gap-3 md:mt-0 mt-4">
-                    <button className="border border-[#D0D5DD] text-sm bg-white text-[#344054] rounded-lg w-[7.68rem] h-10 flex justify-center items-center">
+                    <button className="border border-[#D0D5DD] text-sm bg-white text-[#344054] rounded-lg w-[7.68rem] h-10 flex justify-center items-center" onClick={handleCopyLink}>
                     <div className='mr-2'>
                         <Image width={20} height={20} src='/copy.svg' className='mr-2' />
                     </div>
-                        Copy Link
+                        {clicked ? "Copied!" : "Copy Link"}
                     </button>
                     <button className="w-10 h-10 rounded-lg bg-white flex justify-center items-center border border-[#D0D5DD]">
                         <Image width={20} height={20} src="/twit.svg" />
@@ -157,4 +172,17 @@ export function ArticleBottom({ article }) {
                 </div>
             </div>
   )
+}
+
+
+function copyToClipboard(text) {
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.style.position = 'absolute';
+  textarea.style.left = '-9999px'; 
+  document.body.appendChild(textarea);
+  textarea.select(); 
+  textarea.setSelectionRange(0, 99999); 
+  document.execCommand('copy');
+  document.body.removeChild(textarea); 
 }
