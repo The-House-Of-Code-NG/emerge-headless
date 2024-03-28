@@ -73,7 +73,7 @@ export function BlogList({ posts }) {
     }
     return (
        <section className='px-[1.25rem] lg:px-[8rem]'>
-            <h2 className='text-[#101828] text-[2rem] mb-8'>All fuck blog posts</h2>
+            <h2 className='text-[#101828] text-[2rem] mb-8'>All blog posts</h2>
          <div className="grid md:grid-cols-3 auto-cols-fr grid-cols-1 w-full gap-x-8 gap-y-12 mb-24">
             {posts.map((data, index) => (
                 <Link key={index} href={`/${data.slug}`} className="!cursor-pointer">
