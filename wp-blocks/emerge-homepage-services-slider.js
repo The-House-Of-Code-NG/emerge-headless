@@ -73,7 +73,7 @@ export default function EmergeHomepageServicesSlider( props ) {
                         } ) }
                     </Swiper>
                         <div className="flex flex-row items-center w-full justify-end md:px-16">
-                        <div className="flex mt-12 flex-row space-x-5 items-center">
+                        <div className="flex mt-12 flex-row space-x-5 items-center mr-2">
                             <button className="service-slider-prev-service">
                                 <svg
                                     width="46"

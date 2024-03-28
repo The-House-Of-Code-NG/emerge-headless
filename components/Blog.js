@@ -73,13 +73,13 @@ export function BlogList({ posts }) {
     }
     return (
        <section className='px-[1.25rem] lg:px-[8rem]'>
-            <h2 className='text-[#101828] text-[2rem] mb-8'>All blog posts</h2>
+            <h2 className='text-[#101828] text-[2rem] mb-8'>All fuck blog posts</h2>
          <div className="grid md:grid-cols-3 auto-cols-fr grid-cols-1 w-full gap-x-8 gap-y-12 mb-24">
             {posts.map((data, index) => (
                 <Link key={index} href={`/${data.slug}`} className="!cursor-pointer">
                 <div className="!cursor-pointer">
-                <div className="mb-6">
-                    <Image src={data.featuredImage ? data.featuredImage.node.sourceUrl : ""} className='w-full object-cover' alt={data.title} width={384} height={240} />
+                <div className="rounded-[1rem] mb-6 relative lg:w-[24rem] w-full h-[15rem]">
+                  <Image src={data.featuredImage ? data.featuredImage.node.sourceUrl : ""} className='aspect-w-16 aspect-h-10 object-cover' alt={data.title} layout="fill"  />
                 </div>
                 <div className="w-full">
                     <span className="text-sm text-[#6941C6] leading-3">{data.author.node.name} • {formatDate(data.date)}</span>

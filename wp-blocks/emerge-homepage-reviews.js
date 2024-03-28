@@ -46,7 +46,7 @@ export default function EmergeHomepageReviews( props ) {
                     <Swiper { ...sliderOptions } className="w-full flex">
                         {memoizedReviews?.map((review, index) => (
                             <SwiperSlide key={index} className="bg-white rounded-[0.75rem] p-[2rem]">
-                                <div className="h-[14.6rem]">
+                                <div className="h-full">
                                     <svg
                                         width="105"
                                         height="21"
@@ -149,7 +149,7 @@ export default function EmergeHomepageReviews( props ) {
                         ))}
                     </Swiper>
                     <div className="flex flex-row items-center w-full justify-end px-16">
-                        <div className="flex mt-12 flex-row space-x-5 items-center">
+                        <div className="flex mt-12 flex-row space-x-5 items-center mr-2">
                             <button className="service-slider-prev-review">
                                 <svg
                                     width="46"

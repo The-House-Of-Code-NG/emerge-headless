@@ -16,7 +16,7 @@ const CalendlyEmbed = () => {
             className="calendly-inline-widget"
             data-url="https://calendly.com/emerge-digital-rami/free-digital-discovery-emerge-digital?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0e0b0b&text_color=ffffff&primary_color=ed185c"
             style={ {
-                minWidth: 400,
+                width: '100%',
                 height: 511,
                 borderTopLeftRadius: '15px',
                 borderTopRightRadius: '15px',

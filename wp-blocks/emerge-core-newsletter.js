@@ -15,7 +15,7 @@ export default function EmergeCoreNewsletter( props ) {
                         <p className="font-Inter font-normal text-lg mt-3.5 text-white">
                             { attributes?.paragraph }
                         </p>
-                        <div className="flex flex-col mt-5 w-[300px]">
+                        <div className="flex flex-col mt-5 md:w-[300px] w-full">
                             <input
                                 placeholder="your full name"
                                 className=" px-2 text-white bg-[#2D2466] outline-none border-[1px] border-white/20 h-[50px] py-2 rounded-[9px]"
@@ -30,7 +30,7 @@ export default function EmergeCoreNewsletter( props ) {
                         </div>
                     </div>
                     <div className="-pt-12">
-                        <img className="" src="/newsletter.svg" />
+                        <img className="h-full object-cover" src="/newsletter.svg" />
                     </div>
                 </div>
             </div>

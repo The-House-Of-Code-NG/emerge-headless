@@ -64,7 +64,7 @@ const GET_POST_QUERY = gql`
       }
       ...FeaturedImageFragment
     }
-    posts {
+    posts(where: { notIn: [$databaseId] }) {
       nodes {
        id
        title

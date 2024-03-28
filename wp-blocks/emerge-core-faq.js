@@ -19,7 +19,7 @@ export default function EmergeCoreFaq(props) {
     };
 
     return (
-        <section className="w-full px-[1.25rem] lg:px-[8rem] overflow-hidden">
+        <section className="w-full px-[1.25rem] lg:px-[8rem] overflow-hidden mb-[3.373rem]">
             <div className="w-full mt-[7.31rem]">
                 <h2 className="text-center text-black text-[30px] mb-[4.75rem] font-bold font-Satoshi leading-[3.94rem]">
                     {heading}
@@ -35,7 +35,7 @@ export default function EmergeCoreFaq(props) {
                             className="accordion-button flex justify-between w-full"
                             onClick={() => handleToggle(index)}
                         >
-                            <h4 className="mb-[1.5rem] text-[1.62rem] lg:text-[30px] font-Satoshi leading-[2.12rem] font-bold">
+                            <h4 className="lg:mb-[1.5rem] text-left text-[1.62rem] lg:text-[30px] font-Satoshi leading-[2.12rem] font-bold">
                                 {item.question}
                             </h4>
                                 {activeIndex === index ? (
