@@ -3,6 +3,7 @@ import NavigationMenu from "../NavigationMenu/NavigationMenu";
 import Link from "next/link";
 import {motion} from 'framer-motion'
 import { Container } from "../Container";
+import MobileMenu from "../NavigationMenu/MobileMenu";
 export default function Header({
   title = 'Emerge Digital',
   description,
@@ -25,8 +26,9 @@ export default function Header({
             <NavigationMenu menuItems={menuItems} />
            </div>
            <motion.div
-           className="absolute top-0 left-0 min-h-[30vh] pb-5 w-full bg-white"
+           className="lg:hidden absolute top-0 left-0 min-h-[30vh] pb-5 w-full bg-white"
               animate={isMenuOpen ? "open" : "closed"} 
+              initial={{ opacity: 0 }} // Initially hidden
               variants={{
                 open: { opacity: 1, y: 0 },
                 closed: { opacity: 0, y: "-100%" },
@@ -45,7 +47,9 @@ export default function Header({
                 </div>
               </Container>
               <div className="flex flex-col justify-center items-center h-full w-full">
-                <NavigationMenu menuItems={menuItems} mobile />
+                <Container>
+                  <MobileMenu menuItems={menuItems} mobile />
+                </Container>
                 <motion.a
               whileHover={{
                 scale: 1.1,
