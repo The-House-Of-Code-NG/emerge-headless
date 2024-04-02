@@ -25,7 +25,7 @@ export default function EmergeServiceBenefits (props) {
                     <div
                         className={ `flex pt-10 mb-5 flex-row items-center justify-center` }
                     >
-                        <h3 className="text-2xl font-Inter font-medium">
+                        <h3 className="text-2xl !font-Inter font-medium">
                             { clientsHeading}
                         </h3>
                     </div>
@@ -62,7 +62,7 @@ export default function EmergeServiceBenefits (props) {
             )}
             <div className="px-[1.25rem]  lg:px-[8rem]">
                 <div className="benefits-container  mt-24">
-                    <h2 className="benefits-title">{ title }</h2>
+                    <h2 className="benefits-title !font-Satoshi">{ title }</h2>
                     <div className="benefits-grid">
                         {memoizedBenefits.map((benefit, index) => (
                             <div className="benefits-item" key={index}>
@@ -71,7 +71,7 @@ export default function EmergeServiceBenefits (props) {
                                     alt="Check Icon"
                                     className="benefits-item-check"
                                 />
-                                <p className="benefits-item-text">
+                                <p className="benefits-item-text !font-Inter">
                                     { benefit }
                                 </p>
                             </div>

@@ -15,11 +15,11 @@ export default function EmergeServiceServices (props) {
                 className="ppc-services-background"
                 style={ { backgroundColor: '#100650' } }
             >
-                <div className="w-full px-[1.25rem] lg:px-[8rem] overflow-hidden">
+                <div className="w-full px-[20px] lg:px-[128px] overflow-hidden">
                     <div className="ppc-services-content">
-                        <h2 className="ppc-services-title">{ title }</h2>
-                        <p className="ppc-services-description">{ text }</p>
-                        <div className="grid grid-cols-1 md:grid-cols-4 gap-[21px] mt-[3.37rem] mb-[2.93rem]">
+                        <h2 className="ppc-services-title !font-Satoshi">{ title }</h2>
+                        <p className="ppc-services-description !font-Inter">{ text }</p>
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-[1.3125rem] mt-[53.92px] mb-[46.88px]">
                             {memoizedServices.map((service, index) => (
                                 <div className="ppc-service-item" key={index}>
                                     <img
@@ -27,10 +27,10 @@ export default function EmergeServiceServices (props) {
                                         src={ service.imageUrl }
                                         alt="Service Slide"
                                     />
-                                    <h4 className="ppc-service-title">
+                                    <h4 className="ppc-service-title !font-Satoshi">
                                         { service.heading }
                                     </h4>
-                                    <p className="ppc-service-content">
+                                    <p className="ppc-service-content !font-Inter">
                                         { service.text }
                                     </p>
                                 </div>
@@ -44,7 +44,7 @@ export default function EmergeServiceServices (props) {
                                 }}
                                 transition={{ duration: 0.5, yoyo: Infinity }}
                                 href={ buttonLink }
-                                className="mt-5 text-white text-lg text-center font-Inter font-semibold bg-[#8959FF] inline-flex rounded-[8px] px-3.5 py-2"
+                                className="mt-5 text-white text-lg text-center !font-Inter font-semibold bg-[#8959FF] inline-flex rounded-[.5rem] px-3.5 py-2"
                             >
                                 { buttonText }
                             </motion.a>

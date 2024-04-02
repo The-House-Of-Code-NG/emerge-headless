@@ -12,7 +12,7 @@ export default function EmergeServiceStages (props) {
             className="w-full px-[1.25rem] lg:px-[8rem] overflow-hidden"
         >
             <div className="stages-container">
-                <h2 className="stages-title">{ title }</h2>
+                <h2 className="stages-title !font-Satoshi">{ title }</h2>
                 <div className="stages-grid">
                     { memoizedStages.map( ( stage, index ) => (
                         <div
@@ -28,12 +28,12 @@ export default function EmergeServiceStages (props) {
                             />
                             <div className="stage-content">
                                 <div className="stage-number-container">
-                                    <div className="stage-number">
+                                    <div className="stage-number !font-Satoshi">
                                         { index + 1 }
                                     </div>
                                 </div>
-                                <h2 className="stage-title">{ stage.title }</h2>
-                                <p className="stage-content-text">
+                                <h2 className="stage-title !font-Satoshi">{ stage.title }</h2>
+                                <p className="stage-content-text !font-Inter">
                                     { stage.content }
                                 </p>
                             </div>

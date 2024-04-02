@@ -26,7 +26,7 @@ export default function Header({
             <NavigationMenu menuItems={menuItems} />
            </div>
            <motion.div
-           className="lg:hidden absolute top-0 left-0 min-h-[30vh] pb-5 w-full bg-white"
+           className="lg:hidden absolute z-50 top-0 left-0 min-h-[30vh] pb-5 w-full bg-white"
               animate={isMenuOpen ? "open" : "closed"} 
               initial={{ opacity: 0 }} // Initially hidden
               variants={{
