@@ -20,9 +20,10 @@ export default function EmergeCoreFaq(props) {
 
     return (
         <section className="w-full px-[1.25rem] lg:px-[8rem] overflow-hidden mb-[3.373rem]">
+
             <div className="w-full mt-[7.31rem]">
-                <h2 className="text-center text-black text-[30px] mb-[4.75rem] font-bold font-Satoshi leading-[3.94rem]">
-                    {heading}
+                <h2 className="text-center text-black text-[30px] mb-[4.75rem] font-black font-Satoshi leading-[3.94rem]">
+                    Frequently asked questions
                 </h2>
                 {memoizedQuestions.map((item, index) => (
                     <div

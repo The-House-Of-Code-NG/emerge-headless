@@ -8,7 +8,7 @@ export default function EmergeHomepagePartnership  (props)  {
         >
             <div className="flex flex-col md:flex-row items-start">
                 <div className="mb-[3.44rem] md:mb-0 w-ull md:w-1/2">
-					<span className="inline-flex text-sm md:text-base text-center font-Inter text-[#100650] font-medium uppercase h-[36px] bg-[#4A00FF0F]/5 px-2.5 rounded-[6px] py-2">
+					<span className="inline-flex text-xs md:text-base text-center font-Inter text-[#100650] font-medium uppercase bg-[#4A00FF0F]/5 px-2.5 rounded-[6px] py-2">
 						{ tagText }
 					</span>
                     <h3 className="font-black font-Satoshi leading-[3.24rem] md:leading-[3.94rem] text-[2.875rem] md:text-[3.125rem] mt-[1.56rem] md:mt-8">

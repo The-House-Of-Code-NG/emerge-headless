@@ -8,7 +8,7 @@ export default function EmergeHomepageCallToAction (props) {
         <motion.section className="bg-[#100650] w-full">
             <div className="flex px-[2.06rem] md:px-32 pt-[3.5rem]  pb-[22rem]  md:py-40 flex-col md:flex-row bg-[url('../public/art.svg')] bg-origin-border bg-no-repeat bg-right-bottom md:bg-right-top" >
                 <div className="w-full md:w-2/3">
-                    <span className='text-sm md:text-base text-center font-Inter text-[#100650] text-white font-medium uppercase h-[36px] bg-white/10 px-2.5 rounded-[6px] py-2'>
+                    <span className='text-xs md:text-base text-center font-Inter text-[#100650] text-white font-medium uppercase h-[36px] bg-white/10 px-2.5 rounded-[6px] py-2'>
                        {tagText}
                     </span>
                     <AnimatedText

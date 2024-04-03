@@ -10,7 +10,7 @@ export default function EmergeCoreClients (props) {
         return [...client1, ...client2]
     }, [logos])
     return (
-        <section className="flex flex-col mt-28">
+        <section className="flex flex-col mt-[44px] md:mt-28">
             <div className="hidden md:flex flex-row justify-center">
                 <img src="/slider/slider.svg" className="" alt="Mouse" />
             </div>

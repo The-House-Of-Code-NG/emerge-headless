@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { Dropdown, DropdownMenuItem, DropdownNestedMenuItem } from "./Dropdown";
 import Button from "@material-ui/core/Button";
 import { Box } from '@mui/material';
+import  Link from 'next/link';
 
 export default function NavigationMenu({ menuItems, className }) {
   const router = useRouter()
@@ -15,7 +16,6 @@ export default function NavigationMenu({ menuItems, className }) {
     return void router.push(url)
   };
 
-
   return (
     <nav
       role="navigation"
@@ -25,7 +25,14 @@ export default function NavigationMenu({ menuItems, className }) {
       <Box className="flex w-full flex-col lg:flex-row items-center lg:ml-[2.25rem]">
        {menuItems.map((item) => (
         <Dropdown
-        trigger={<Button className='w-full lg:justify-normal !px-[1.25rem] lg:!px-2 !justify-between !flex gap-2  py-[6px] text-[15px] !capitalize !font-Inter font-[500]'><div onClick={() => navigateUrl(item.uri)}>{item.label}</div> {item.childItems?.nodes?.length > 0 ? <img src='/chevronDown.svg' className='w-5' alt='Arrow' /> : null}</Button>}
+        trigger={
+          <Button className='w-full lg:justify-normal !px-[1.25rem] lg:!px-2 !justify-between !flex gap-2  py-[6px] text-[15px] !capitalize !font-Inter font-[500]'>
+            <Link href={item.uri}>
+              {item.label}
+            </Link>
+            {item.childItems?.nodes?.length > 0 ? <img src='/chevronDown.svg' className='w-5' alt='Arrow' /> : null}
+          </Button>
+        }
         menu={item.childItems.nodes.map((i) => (
           <DropdownNestedMenuItem
           label={i.label}
@@ -33,9 +40,10 @@ export default function NavigationMenu({ menuItems, className }) {
           onClick={() => navigateUrl(i.uri)}
           menu={i.childItems?.nodes?.length > 0 && i.childItems.nodes.map((subitem) => (
             <DropdownMenuItem
-              onClick={() => navigateUrl(subitem.uri)}
             >
-              {subitem.label}
+              <Link href={subitem.uri}>
+                {subitem.label}
+              </Link>
             </DropdownMenuItem>
           ))}
         />

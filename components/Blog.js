@@ -3,14 +3,11 @@ import Link from 'next/link'
 import moment from 'moment';
 import classNames from "classnames";
 
-
 const colorNames = [
     "red", "orange", "yellow", "green", "teal", "blue", "indigo", "purple",
     "pink", "gray",
     "fuchsia", "lime", "emerald", "cyan", "sky", "violet",
   ];
-
-
 
 function generateTagColors() {
     let lightColor, darkColor;
@@ -25,8 +22,6 @@ function generateTagColors() {
       ringColor: `${darkColor}-400`,
     };
   }
-
-
 
 
   export function Tag({ children , className}) {
