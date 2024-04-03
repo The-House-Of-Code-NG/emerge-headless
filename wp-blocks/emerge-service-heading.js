@@ -5,7 +5,7 @@ export default function EmergeServiceHeading( props ) {
     return (
             <motion.section className="font-Inter semppc-management">
                 <div className="inner">
-                    <h2 className="font-Satoshi">{ attributes.title }</h2>
+                    <h2 className="!font-Satoshi">{ attributes.title }</h2>
                 </div>
             </motion.section>
     );

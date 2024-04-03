@@ -69,7 +69,7 @@ export default function EmergeHomepageWhyUs( props ) {
                                 fill="black"
                             />
                         </svg>
-                        <h3 className="mt-[0.8rem] md:mt-5  text-[0.9rem] md:text-2xl font-semibold font-Satoshi">
+                        <h3 className="mt-[0.8rem] md:mt-5  text-[0.9rem] md:text-2xl font-semibold !font-Satoshi">
                             { reason1 }
                         </h3>
                     </div>
@@ -91,7 +91,7 @@ export default function EmergeHomepageWhyUs( props ) {
                                 fill="black"
                             />
                         </svg>
-                        <h3 className="mt-[0.8rem] md:mt-5  text-[0.9rem] md:text-2xl font-semibold font-Satoshi">
+                        <h3 className="mt-[0.8rem] md:mt-5  text-[0.9rem] md:text-2xl font-semibold !font-Satoshi">
                             { reason2 }
                         </h3>
                     </div>
@@ -113,7 +113,7 @@ export default function EmergeHomepageWhyUs( props ) {
                                 fill="black"
                             />
                         </svg>
-                        <h3 className="mt-[0.8rem] md:mt-5  text-[0.9rem] md:text-2xl font-semibold font-Satoshi">
+                        <h3 className="mt-[0.8rem] md:mt-5  text-[0.9rem] md:text-2xl font-semibold !font-Satoshi">
                             { reason3 }
                         </h3>
                     </div>
@@ -135,7 +135,7 @@ export default function EmergeHomepageWhyUs( props ) {
                                 fill="black"
                             />
                         </svg>
-                        <h3 className="mt-[0.8rem] md:mt-5  text-[0.9rem] md:text-2xl font-semibold font-Satoshi">
+                        <h3 className="mt-[0.8rem] md:mt-5  text-[0.9rem] md:text-2xl font-semibold !font-Satoshi">
                             { reason4 }
                         </h3>
                     </div>
@@ -157,7 +157,7 @@ export default function EmergeHomepageWhyUs( props ) {
                                 fill="black"
                             />
                         </svg>
-                        <h3 className="mt-[0.8rem] md:mt-5  text-[0.9rem] md:text-2xl font-semibold font-Satoshi">
+                        <h3 className="mt-[0.8rem] md:mt-5  text-[0.9rem] md:text-2xl font-semibold !font-Satoshi">
                             { reason5 }
                         </h3>
                     </div>
@@ -179,7 +179,7 @@ export default function EmergeHomepageWhyUs( props ) {
                                 fill="black"
                             />
                         </svg>
-                        <h3 className="mt-[0.8rem] md:mt-5  text-[0.9rem] md:text-2xl font-semibold font-Satoshi">
+                        <h3 className="mt-[0.8rem] md:mt-5  text-[0.9rem] md:text-2xl font-semibold !font-Satoshi">
                             { reason6 }
                         </h3>
                     </div>
